@@ -10,3 +10,7 @@
 
   - Bug fixes for LDAP plugin
   - Improved UI
+  
+## 1.3 (14th February 2017)
+
+	- Adapted to Kopano WebApp 3.3.0 for DB only, not tested/fixed for LDAP

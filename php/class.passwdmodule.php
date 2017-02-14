@@ -199,6 +199,7 @@ class PasswdModule extends Module
 		$errorMessage = '';
 		$passwd = $data['new_password'];
 
+		/* 
 		// get current session password
 		$sessionPass = $_SESSION['password'];
 		// if user has openssl module installed
@@ -213,6 +214,10 @@ class PasswdModule extends Module
 				$sessionPass = $_SESSION['password'];
 			}
 		}
+		*/
+		// Get current user password
+		$encryptionStore = EncryptionStore::getInstance();
+		$sessionPass = $encryptionStore->get('password');
 
 		if($data['current_password'] === $sessionPass) {
 			if ($this->checkPasswordStrenth($passwd)) {
@@ -223,6 +228,7 @@ class PasswdModule extends Module
 				if (mapi_zarafa_setuser($store, $userinfo['userid'], $data['username'], $userinfo['fullname'], $userinfo['emailaddress'], $passwd, 0, $userinfo['admin'])) {
 					// password changed successfully
 
+				/* Not able to find a way, session is discarded and user should log in again
 					// write new password to session because we don't want user to re-authenticate
 					session_start();
 					// if user has openssl module installed
@@ -244,6 +250,9 @@ class PasswdModule extends Module
 							'display_message' => dgettext("plugin_passwd", 'Password is changed successfully.')
 						)
 					));
+					*/
+					// Give the session a new id
+					session_regenerate_id();
 				} else {
 					$errorMessage = dgettext("plugin_passwd", 'Password is not changed.');
 				}
