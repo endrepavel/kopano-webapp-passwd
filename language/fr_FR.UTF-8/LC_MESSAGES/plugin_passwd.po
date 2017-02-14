@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zarafa-webapp-plugin-passwd\n"
+"POT-Creation-Date: 2014-03-04 13:53+0100\n"
+"PO-Revision-Date: 2017-02-14 16:11+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 1.6.4\n"
+
+# php/class.passwdmodule.php:44:
+msgid "No data received."
+msgstr "Aucune donnée reçue"
+
+# php/class.passwdmodule.php:48:
+msgid "User name is empty."
+msgstr "Le nom d'utilisateur est vide"
+
+# php/class.passwdmodule.php:52:
+msgid "Current password is empty."
+msgstr "Le mot de passe est vide"
+
+# php/class.passwdmodule.php:56:
+msgid "New password is empty."
+msgstr "Le nouveau mot de passe est vide"
+
+# php/class.passwdmodule.php:60:
+msgid "New passwords do not match."
+msgstr "Le nouveau mot de passe n'est pas identique"
+
+# php/class.passwdmodule.php:137:
+# php/class.passwdmodule.php:196:
+# js/data/PasswdResponseHandler.js:44:
+msgid "Password is changed successfully."
+msgstr "Le mot de passe a été changé avec succès"
+
+# php/class.passwdmodule.php:141:
+# php/class.passwdmodule.php:200:
+msgid "Password is not changed."
+msgstr "Le mot de passe n'a pas changé!"
+
+# php/class.passwdmodule.php:144:
+# php/class.passwdmodule.php:203:
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+"La complexité du mot de passe n'est pas suffisante, il faut au minimum 8 "
+"caractères."
+
+# php/class.passwdmodule.php:147:
+msgid "Current password does not match."
+msgstr "Le mot de passe est faux."
+
+# js/data/PasswdResponseHandler.js:27:
+msgid "An unknown error occurred while changing password."
+msgstr "Une erreur inconnue est survenue lors du changement de mot de passe."
+
+# js/data/PasswdResponseHandler.js:33:
+msgid "Error"
+msgstr "Erreur"
+
+# js/data/PasswdResponseHandler.js:50:
+msgid "Success"
+msgstr "Réussi"
+
+# js/settings/SettingsPasswdWidget.js:24:
+# js/settings/SettingsPasswdCategory.js:20:
+msgid "Change Password"
+msgstr "Changer le mot de passe"
+
+# js/PasswdPlugin.js:50:
+msgid "Password Change Plugin"
+msgstr "Plugin pour changer son mot de passe"
+
+# js/settings/PasswdPanel.js:29:
+msgid "User name"
+msgstr "Nom d'utilisateur"
+
+# js/settings/PasswdPanel.js:33:
+msgid "Current password"
+msgstr "Mot de passe"
+
+# js/settings/PasswdPanel.js:42:
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+# js/settings/PasswdPanel.js:51:
+msgid "Retype new password"
+msgstr "Retaper le nouveau mot de passe"
