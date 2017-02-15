@@ -1,10 +1,11 @@
-zarafa-webapp-passwd
+kopano-webapp-passwd
 ====================
 
 The Passwd plugin allows the user to change the current user password inside of WebApp.
 
 This plugin is largely based on the Passwd plugin by Andreas Brodowski.
 For his original work check this [link](https://community.zarafa.com/pg/plugins/project/157/developer/dw2412/passwd-plugin)
+This plugin is a fork of zarafa-webapp-passwd [link](https://github.com/silentsakky/zarafa-webapp-passwd) written by Saket Patel
 
 ## How to install
 1.  If you want to use this plugin with production / debug version of webapp then unzip ./builds/passwd-1.3.zip in <webapp_path>/plugins directory
