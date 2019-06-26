@@ -23,3 +23,7 @@
 ## 1.5	(9th November 2018)
 	
 	- Adapted to Kopano WebApp 3.4.24 for DB only, not tested/fixed for LDAP
+
+## 1.6	(26th, June 2019)
+
+	- Adapted to Kopano WebApp 3.5.7.2330+1306.1 for LDAP only, not tested/fixed for DB
