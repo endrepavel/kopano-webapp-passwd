@@ -111,10 +111,10 @@ class PasswdModule extends Module
 
 			// search for the user dn that will be used to do login into LDAP
 			$userdn = ldap_search (
-				$ldapconn,						// connection-identify
+				$ldapconn,				// connection-identify
 				PLUGIN_PASSWD_LDAP_BASEDN,		// basedn
-				'uid=' . $uid,					// search filter
-				array('dn', 'objectClass')	// needed attributes. we need dn and objectclass
+				PLUGIN_PASSWD_LDAP_FILTER . '=' . $uid,	// search filter
+				array('dn', 'objectClass')		// needed attributes. we need dn and objectclass
 			);
 
 			if ($userdn) {
@@ -130,14 +130,13 @@ class PasswdModule extends Module
 					$passwd = $data['new_password'];
 
 					if ($this->checkPasswordStrenth($passwd)) {
-						$password_hash = $this->sshaEncode($passwd);
-						$entry = array('userPassword' => $password_hash);
-						if (in_array('sambaSamAccount', $entries[0]['objectclass'])) {
-							$nthash = strtoupper(bin2hex(mhash(MHASH_MD4, iconv("UTF-8","UTF-16LE", $passwd))));
-							$entry['sambaNTPassword'] = $nthash;
-							$entry['sambaPwdLastSet'] = strval(time());
-						}
-						ldap_modify($ldapconn, $userdn, $entry);
+						
+						// now bind to the ldap server to Admin rights
+						ldap_bind($ldapconn, PLUGIN_PASSWD_LDAP_BIND_DN, PLUGIN_PASSWD_LDAP_BIND_PW);
+						
+						$entry["unicodePwd"] = iconv("UTF-8", "UTF-16LE", '"' . $passwd . '"');
+						
+						ldap_mod_replace($ldapconn, $userdn, $entry);
 						if (ldap_errno($ldapconn) === 0) {
 							// password changed successfully
 
