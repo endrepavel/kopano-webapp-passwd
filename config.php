@@ -17,7 +17,7 @@ define('PLUGIN_PASSWD_LDAP_USE_TLS', true);
 /** Bind DN to access LDAP server with Administrator rights **/
 define('PLUGIN_PASSWD_LDAP_BIND_DN', "");
 
-/** Bind password to access LDAP server (keep empty for anonymous bind) **/
+/** Bind password to access LDAP server **/
 define('PLUGIN_PASSWD_LDAP_BIND_PW', "");
 
 /** Set to true if you login with username@tenantname **/
