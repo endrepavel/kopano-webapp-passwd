@@ -24,6 +24,6 @@ define('PLUGIN_PASSWD_LDAP_BIND_PW', "");
 define('PLUGIN_PASSWD_LOGIN_WITH_TENANT', false);
 
 /** Set LDAP search filter. Default: "uid", I use "mail" **/
-define('PLUGIN_PASSWD_LDAP_FILTER', "uid";
+define('PLUGIN_PASSWD_LDAP_FILTER', "uid");
 
 ?>
