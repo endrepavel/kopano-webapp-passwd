@@ -3,6 +3,9 @@
  * Passwd module.
  * Module that will be used to change passwords of the user
  */
+
+require_once( BASE_PATH . 'server/includes/core/class.webappsession.php');
+
 class PasswdModule extends Module
 {
 	/**
