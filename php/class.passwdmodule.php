@@ -140,28 +140,16 @@ class PasswdModule extends Module
 						if (ldap_errno($ldapconn) === 0) {
 							// password changed successfully
 
-							// write new password to session because we don't want user to re-authenticate
-							session_start();
-							// if user has openssl module installed
-							if(function_exists("openssl_encrypt")) {
-								// In PHP 5.3.3 the iv parameter was added
-								if(version_compare(phpversion(), "5.3.3", "<")) {
-									$_SESSION['password'] = openssl_encrypt($passwd,"des-ede3-cbc",PASSWORD_KEY,0);
-								} else {
-									$_SESSION['password'] = openssl_encrypt($passwd,"des-ede3-cbc",PASSWORD_KEY,0,PASSWORD_IV);
-								}
-							}
-							else {
-								$_SESSION['password'] = $passwd;
-							}
-							session_write_close();
-
 							// send feedback to client
 							$this->sendFeedback(true, array(
 								'info' => array(
 									'display_message' => dgettext("plugin_passwd", 'Password is changed successfully.')
 								)
 							));
+							
+							// destroy now
+                                                        WebAppSession::getInstance()->destroy();
+
 						} else {
 							$errorMessage = dgettext("plugin_passwd", 'Password is not changed.');
 						}
@@ -289,22 +277,6 @@ class PasswdModule extends Module
 		} else {
 			return false;
 		}
-	}
-
-	/**
-	 * Function will generate SSHA hash to use to store user's password in LDAP.
-	 * @param {String} $text text based on which hash will be generated.
-	 */
-	function sshaEncode($text)
-	{
-		$salt = '';
-		for ($i=1; $i<=10; $i++) {
-			$salt .= substr('0123456789abcdef', rand(0, 15), 1);
-		}
-
-		$hash = '{SSHA}' . base64_encode(pack('H*',sha1($text . $salt)) . $salt);
-
-		return $hash;
 	}
 }
 ?>
